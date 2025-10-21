@@ -3,6 +3,7 @@ package com.codingshuttle.TestingApp.repositories;
 import com.codingshuttle.TestingApp.TestContainerConfiguration;
 import com.codingshuttle.TestingApp.dto.EmployeeDto;
 import com.codingshuttle.TestingApp.entities.Employee;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class EmployeeRepositoryTest {
 
-    /*@Autowired
+    @BeforeAll
+    static void fixTimezone() {
+        System.setProperty("user.timezone", "Asia/Kolkata");
+    }
+
+    @Autowired
     private EmployeeRepository employeeRepository;
 
     private Employee employee;
@@ -58,7 +64,7 @@ class EmployeeRepositoryTest {
 //        Then
         assertThat(employeeList).isNotNull();
         assertThat(employeeList).isEmpty();
-    }*/
+    }
 }
 
 

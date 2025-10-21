@@ -1,5 +1,6 @@
 package com.codingshuttle.TestingApp;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +13,9 @@ public class TestContainerConfiguration {
     @Bean
     @ServiceConnection
     PostgreSQLContainer<?> postgresContainer() {
-        return new PostgreSQLContainer<>(DockerImageName.parse("postgres:latest"));
+        return new PostgreSQLContainer<>(DockerImageName.parse("postgres:latest"))
+                .withEnv("TZ", "Asia/Kolkata")
+                .withCommand("postgres", "-c", "timezone=Asia/Kolkata")
+                .withUrlParam("options", "-c timezone=Asia/Kolkata");
     }
 }

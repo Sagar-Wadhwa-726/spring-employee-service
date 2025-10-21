@@ -6,6 +6,12 @@ phases:
       java: corretto21
     commands:
       - echo Installing Maven...
+  pre_build:
+    commands:
+      - echo "Setting timezone to Asia/Kolkata..."
+      - ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+      - export TZ=Asia/Kolkata
+      - date  # Just to verify it’s set correctly
   build:
     commands:
       - echo Building, Testing and packaging the application...
