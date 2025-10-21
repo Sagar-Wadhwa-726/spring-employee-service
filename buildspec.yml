@@ -12,7 +12,7 @@ phases:
       - mvn package -DskipTests
   post_build:
     commands:
-      - echo Build & packaging completed.
+      - echo "Build & packaging completed."
 artifacts:
   files:
     - target/*.jar
