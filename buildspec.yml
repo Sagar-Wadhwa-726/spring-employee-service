@@ -20,3 +20,5 @@ artifacts:
 cache:
   paths:
     - '/root/.m2/**/*'
+
+# this is a yaml file
