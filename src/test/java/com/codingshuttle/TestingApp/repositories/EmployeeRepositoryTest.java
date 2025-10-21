@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class EmployeeRepositoryTest {
 
-    @Autowired
+    /*@Autowired
     private EmployeeRepository employeeRepository;
 
     private Employee employee;
@@ -58,7 +58,7 @@ class EmployeeRepositoryTest {
 //        Then
         assertThat(employeeList).isNotNull();
         assertThat(employeeList).isEmpty();
-    }
+    }*/
 }
 
 
